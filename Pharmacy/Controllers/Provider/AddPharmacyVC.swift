@@ -45,13 +45,17 @@ class AddPharmacyVC: UIViewController {
             print(error!)
         }else {
             if pharmacyImage.image != nil {
-                  uploadImage(image: pharmacyImage.image) { (url) in
-                  parameters["pharmacyname"] = pharmacynameTF.text!
-                  parameters["pharmacyaddress"] = pharmacyaddressTF.text!
+                uploadImage(image: pharmacyImage.image!) { (url) in
+                    if let err = error {
+                        print("Error fetching docs: \(err)")
+                    } else {
+                        
+                        self.parameters["pharmacyname"] = self.pharmacynameTF.text!
+                        self.parameters["pharmacyaddress"] = self.pharmacyaddressTF.text!
                   do{
                       let pharmacyref = self.ref.collection("Pharmacy")
                       
-                      try? pharmacyref.addDocument(data: parameters, completion: { err in
+                    try? pharmacyref.addDocument(data: self.parameters, completion: { err in
                           if let error = err {
                               print(error.localizedDescription)
                               self.showAlertMessage(title: "error", message: "\(error.localizedDescription)")
@@ -66,7 +70,7 @@ class AddPharmacyVC: UIViewController {
                   }
                   
                   }
-                }else {
+                }}else {
                     showAlertMessage(message: "Please pick an Image")
                 }
         }}
