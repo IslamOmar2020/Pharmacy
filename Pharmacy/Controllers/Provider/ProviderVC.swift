@@ -21,8 +21,8 @@ class ProviderVC: UIViewController {
     }
     
     @IBAction func addpharmacyAction(_ sender: Any) {
-        let vc = storyboard?.instantiateInitialViewController()
-        present(v)
+        let vc = storyboard?.instantiateViewController(identifier: "AddPharmacyVC")
+        present(vc! , animated: true)
     }
     
 

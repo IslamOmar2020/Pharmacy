@@ -54,6 +54,7 @@
 		A8ADBF4F24E36BB300D1C408 /* FirestoreReferenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8ADBF4E24E36BB300D1C408 /* FirestoreReferenceManager.swift */; };
 		A8CFB3DD24ED0594001EB692 /* ProviderVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8CFB3DC24ED0594001EB692 /* ProviderVC.swift */; };
 		A8D6AB5524EC63490071D6E9 /* UserHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8D6AB5424EC63490071D6E9 /* UserHelper.swift */; };
+		A8E2296124F04EDD00F26EAA /* ListofAllpharmaciesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8E2296024F04EDD00F26EAA /* ListofAllpharmaciesVC.swift */; };
 		A8E27D0D24EBF8FB004BE626 /* ShowDrugsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8E27D0C24EBF8FB004BE626 /* ShowDrugsVC.swift */; };
 		A8EE7DB624E6E2E90095C2DA /* FirebaseKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8EE7DB524E6E2E90095C2DA /* FirebaseKeys.swift */; };
 /* End PBXBuildFile section */
@@ -108,6 +109,7 @@
 		A8ADBF4E24E36BB300D1C408 /* FirestoreReferenceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreReferenceManager.swift; sourceTree = "<group>"; };
 		A8CFB3DC24ED0594001EB692 /* ProviderVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProviderVC.swift; sourceTree = "<group>"; };
 		A8D6AB5424EC63490071D6E9 /* UserHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserHelper.swift; sourceTree = "<group>"; };
+		A8E2296024F04EDD00F26EAA /* ListofAllpharmaciesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListofAllpharmaciesVC.swift; sourceTree = "<group>"; };
 		A8E27D0C24EBF8FB004BE626 /* ShowDrugsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowDrugsVC.swift; sourceTree = "<group>"; };
 		A8EE7DB524E6E2E90095C2DA /* FirebaseKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseKeys.swift; sourceTree = "<group>"; };
 		E2AEEA6DF9F55A2B866AE00B /* Pods-Pharmacy.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pharmacy.release.xcconfig"; path = "Target Support Files/Pods-Pharmacy/Pods-Pharmacy.release.xcconfig"; sourceTree = "<group>"; };
@@ -243,7 +245,7 @@
 		A877AF1724CDBFF000F16363 /* Provider */ = {
 			isa = PBXGroup;
 			children = (
-				A8FD74A424E7242000EE89D4 /* Cell */,
+				A8FD74A424E7242000EE89D4 /* List of All pharmacies */,
 				A877AF0D24CD9FF000F16363 /* AddClinet */,
 				A877AF1824CDC2AF00F16363 /* ReadOrdersVC.swift */,
 				A877AF1A24CDC2CA00F16363 /* AddDrugVC.swift */,
@@ -361,11 +363,12 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
-		A8FD74A424E7242000EE89D4 /* Cell */ = {
+		A8FD74A424E7242000EE89D4 /* List of All pharmacies */ = {
 			isa = PBXGroup;
 			children = (
+				A8E2296024F04EDD00F26EAA /* ListofAllpharmaciesVC.swift */,
 			);
-			path = Cell;
+			path = "List of All pharmacies";
 			sourceTree = "<group>";
 		};
 		CD3396FD41DBDAC0943C9094 /* Pods */ = {
@@ -531,6 +534,7 @@
 				A877AF1F24CDC34F00F16363 /* Addpharmacylocation.swift in Sources */,
 				A8147EAE24D221D40073B233 /* Optional.swift in Sources */,
 				A877AF0F24CDA03900F16363 /* AddClinetVC.swift in Sources */,
+				A8E2296124F04EDD00F26EAA /* ListofAllpharmaciesVC.swift in Sources */,
 				A891873324D8313F00A0F215 /* SignupProviderVC.swift in Sources */,
 				A8ADBF4F24E36BB300D1C408 /* FirestoreReferenceManager.swift in Sources */,
 				A86FEEB824EC19DC00DE52F6 /* LoginData.swift in Sources */,

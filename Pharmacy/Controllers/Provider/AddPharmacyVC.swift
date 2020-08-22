@@ -16,11 +16,11 @@ class AddPharmacyVC: UIViewController {
     @IBOutlet weak var pharmacyaddressTF: UITextField!
     @IBOutlet weak var pharmacyImage: UIImageView!
     @IBOutlet weak var pharmacyTV: UITableView!
-  
+    
     @IBOutlet weak var pharmacynameTF: UITextField!
     let ref = Firestore.firestore()
     var parameters = [String:Any]()
-   
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -31,49 +31,61 @@ class AddPharmacyVC: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         getPharmacies()
     }
-    func validateFields() -> String? {
-    if pharmacyaddressTF.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" ||
-        pharmacynameTF.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" {
+    func validateFields() -> Bool{
+        let pharmacyname = pharmacynameTF.text
+        let pharmacyaddress = pharmacyaddressTF.text
+        
+        if pharmacyname!.isEmpty || pharmacyaddress!.isEmpty || pharmacyImage!.image == nil  {
+            // myTextField is not empty here
+            self.showAlertMessage(title: "", message: "Please fill in all fields")
+            return false
+        } else {
+            return true
         }
         
-        self.showAlertMessage(title: "", message: "Please fill in all fields")
-         return "Please fill in all fields"
     }
+    
+    
     @IBAction func addPharmacyAction() {
-        let error = validateFields()
-        if error != nil {
-            print(error!)
-        }else {
-            if pharmacyImage.image != nil {
-                uploadImage(image: pharmacyImage.image!) { (url) in
-                    if let err = error {
-                        print("Error fetching docs: \(err)")
-                    } else {
+        //        validateFields()
+        //        let error = validateFields()
+        let erroor: String! = "eroor"
+        if !validateFields() {
+            print("someing error")
+        }else{
+            uploadImage(image: pharmacyImage.image!) { (url) in
+                if let err = erroor {
+                    print("Error fetching docs: \(err)")
+                } else {
+                    
+                    self.parameters["pharmacyname"] = self.pharmacynameTF.text!
+                    self.parameters["pharmacyaddress"] = self.pharmacyaddressTF.text!
+                    do{
+                        let pharmacyref = self.ref.collection("Pharmacy")
                         
-                        self.parameters["pharmacyname"] = self.pharmacynameTF.text!
-                        self.parameters["pharmacyaddress"] = self.pharmacyaddressTF.text!
-                  do{
-                      let pharmacyref = self.ref.collection("Pharmacy")
-                      
-                    try? pharmacyref.addDocument(data: self.parameters, completion: { err in
-                          if let error = err {
-                              print(error.localizedDescription)
-                              self.showAlertMessage(title: "error", message: "\(error.localizedDescription)")
-                              
-                          }
-                          print("sccussfly")
-                          
-                      })
-                  }
-                  catch let error {
-                      self.showAlertMessage(title: "error", message: "\(error.localizedDescription)")
-                  }
-                  
-                  }
-                }}else {
-                    showAlertMessage(message: "Please pick an Image")
+                        try? pharmacyref.addDocument(data: self.parameters, completion: { err in
+                            if let error = err {
+                                print(error.localizedDescription)
+                                self.showAlertMessage(title: "error", message: "\(error.localizedDescription)")
+                                
+                            }
+                            print("sccussfly")
+                            
+                        })
+                    }
+                    catch let error {
+                        self.showAlertMessage(title: "error", message: "\(error.localizedDescription)")
+                    }
+                    
                 }
-        }}
+            }
+        }
+        
+    }
+    
+    
+    
+    
     func getPharmacies(){
         //            self.ref.collection("Pharmacy").addSnapshotListener { (documentSnapshot, error) in
         //                guard let document = documentSnapshot?.documents else {
@@ -90,24 +102,24 @@ class AddPharmacyVC: UIViewController {
                 print("Error fetching docs: \(err)")
             } else {
                 guard let snap = snapshot else {return}
-             
-            for document in snap.documents {
                 
-                let data =  document.data()
-                let name = data["pharmacyname"] as? String ?? ""
-                let adress = data["pharmacyaddress"] as? String ?? ""
+                for document in snap.documents {
+                    
+                    let data =  document.data()
+                    let name = data["pharmacyname"] as? String ?? ""
+                    let adress = data["pharmacyaddress"] as? String ?? ""
+                    
+                    print(data)
+                    let    comedata = Pharmacy(pharmacyname: name, pharmacyaddress: adress)
+                    
+                    self.pharmacies.append(comedata)
+                }
+                print(self.pharmacies)
                 
-                print(data)
-             let    comedata = Pharmacy(pharmacyname: name, pharmacyaddress: adress)
+                self.pharmacyTV.reloadData()
                 
-                self.pharmacies.append(comedata)
             }
-            print(self.pharmacies)
             
-             self.pharmacyTV.reloadData()
-            
-            }
-                            
         }
         
         //                userReference.getDocuments(completion: <#T##FIRQuerySnapshotBlock##FIRQuerySnapshotBlock##(QuerySnapshot?, Error?) -> Void#>)
@@ -120,9 +132,9 @@ class AddPharmacyVC: UIViewController {
         //
         //                }
         
-                   
+        
     }
-  
+    
     
     func updatePharmacy(){
         //let userReference = Firestore.firestore().collection("users").document("Provider")
@@ -138,8 +150,8 @@ class AddPharmacyVC: UIViewController {
 extension AddPharmacyVC : UITableViewDataSource , UITableViewDelegate {
     
     func initltable(){
-          let nib = UINib(nibName: "AddPharmacyTVC", bundle: nil)
-            pharmacyTV.register(nib, forCellReuseIdentifier: "AddPharmacyTVC")
+        let nib = UINib(nibName: "AddPharmacyTVC", bundle: nil)
+        pharmacyTV.register(nib, forCellReuseIdentifier: "AddPharmacyTVC")
         pharmacyTV.dataSource = self
         pharmacyTV.delegate = self
     }
@@ -153,7 +165,7 @@ extension AddPharmacyVC : UITableViewDataSource , UITableViewDelegate {
         let pharmacy = pharmacies[indexPath.row]
         cell.nameLbl?.text = pharmacy.pharmacyname
         cell.adressLbl?.text = pharmacy.pharmacyaddress
-       // cell.pharmacyimage?.image = pharmacy.
+        // cell.pharmacyimage?.image = pharmacy.
         
         
         return cell
@@ -166,7 +178,7 @@ extension AddPharmacyVC : UITableViewDataSource , UITableViewDelegate {
 
 extension AddPharmacyVC : UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
-  @objc  func initPicker(){
+    @objc  func initPicker(){
         let imagepickerV = UIImagePickerController()
         imagepickerV.delegate = self
         imagepickerV.allowsEditing = true
@@ -175,18 +187,19 @@ extension AddPharmacyVC : UIImagePickerControllerDelegate, UINavigationControlle
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-    guard var image = info[.originalImage] as? UIImage  else { return
-          }
+        guard var image = info[.originalImage] as? UIImage  else { return
+        }
         picker.dismiss(animated: true, completion: nil)
         pharmacyImage.image = image
-         // uploadImage(image: image)
-        }
-      
-
+        // uploadImage(image: image)
+    }
+    
+    
     
     func uploadImage(image :UIImage ,comlition: ((URL)->Void)?){
         
         guard let data = image.jpegData(compressionQuality: 0.2) else { return  }
+        let imagename = UUID().uuidString
         let metadata = StorageMetadata()
         metadata.contentType = "image/jpg"
         let ref = Storage.storage().reference(withPath: "images").child("logo.jpg")
@@ -194,15 +207,15 @@ extension AddPharmacyVC : UIImagePickerControllerDelegate, UINavigationControlle
             if error != nil{
                 print(error?.localizedDescription)
                 return
-        }
-            ref.downloadURL { (url, error) in
-                 if error != nil{
-            print(error?.localizedDescription)
-                               return
             }
+            ref.downloadURL { (url, error) in
+                if error != nil{
+                    print(error?.localizedDescription)
+                    return
+                }
                 comlition?(url!)
                 print(url)
-        }
+            }
             print("upload succesful")
         }
     }
