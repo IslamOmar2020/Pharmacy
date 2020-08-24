@@ -49,11 +49,11 @@ class SignupVC: UIViewController {
             emailTF.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" {
             return "Please fill in all fields"
         }
-//        let cleanPassword = passwordTF.text!.trimmingCharacters(in: .whitespacesAndNewlines)
-//        if Utilities.isPasswordValid(cleanPassword) == false {
-//            return "Please make sure your password is at least 8 characters, contains a special character and a number "
-//        }
-        //check email here???
+        let cleanPassword = passwordTF.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+        if Utilities.isPasswordValid(cleanPassword) == false {
+            return "Please make sure your password is at least 8 characters, contains a special character and a number "
+        }
+     //   check email here???
         return nil
     }
        

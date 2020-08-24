@@ -28,14 +28,18 @@ class LoginVC: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         let status = UserDefaults.standard.bool(forKey: "isLogin2")
         if(status == true){
-            nextView()
-        }
+            self.goToHome()        }
     }
     override func viewDidLoad() {
         super.viewDidLoad()
         
     }
-    
+    func goToHome(){
+        let storyboard = UIStoryboard(name: "HomeVC", bundle: nil)
+        let homeVC = storyboard.instantiateViewController(withIdentifier: "HomeVC")
+        self.present(homeVC, animated: true, completion: nil)
+        
+    }
     // Handle Action Button 'login'
     @IBAction func login(_ sender: Any) {
         guard let text = emailTF.text, !text.isEmpty else {
@@ -51,22 +55,14 @@ class LoginVC: UIViewController {
         if Auth.auth().currentUser != nil{
             
             saveUserInDefualt()
-            nextView()
-
+            self.goToHome()
         }else{
             
             showMessage(msg: "Username or Password is Wrong")
         }
     }
     
-    private func nextView(){
-        // Get StoryBoard with name 'Main'
-        let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
-        // Get Next ViewConroller to allow us to make present to this ViewConroller
-        let nextViewController = storyBoard.instantiateViewController(withIdentifier: "nextView") as! UINavigationController
-        // Show 'nextViewController' after get from storyBoard
-        self.present(nextViewController, animated:true, completion:nil)
-    }
+ 
     
     // Helper Method to make UIAlert is easy
     private func showMessage(msg m:String){
@@ -115,8 +111,7 @@ class LoginVC: UIViewController {
             }
             else{
 
-                let vc = self.storyboard?.instantiateViewController(identifier: "HomeVC") as! HomeVC
-                self.navigationController?.pushViewController(vc, animated: true)
+                self.goToHome()
             }
         }
     }

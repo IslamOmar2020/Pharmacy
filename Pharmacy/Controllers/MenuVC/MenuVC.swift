@@ -35,12 +35,7 @@ class MenuVC: UIViewController {
         override func viewWillDisappear(_ animated: Bool) {
       //      getDada()//3
         }
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(true)
-        let mainViewController = sideMenuController!
-        sideMenuController?.hideLeftViewAnimated()
-    //    getDada()//1 // back1
-    }
+  
         override func viewDidAppear(_ animated: Bool) {
           // getDada()//2 // back2
         }
@@ -49,12 +44,14 @@ class MenuVC: UIViewController {
             performSelector(inBackground: #selector(handleLogout), with: nil)
         }
     }
+    @IBAction func logoutAction(_ sender: Any) {
+        handleLogout()
+    }
     @objc func handleLogout(){
         do {
             try Auth.auth().signOut()}catch let logoutError {
                 print(logoutError)
-        }
-        }
+        }     }
     
     @IBAction func authrizeAction(){
         if Auth.auth().isSignIn(withEmailLink: "email"){
@@ -68,46 +65,6 @@ class MenuVC: UIViewController {
         }
     }
 
-    func getIdAction(ide:String) {
-        let mainViewController = sideMenuController!
-        var viewController: UIViewController!
-        let navigationController = mainViewController.rootViewController as! UINavigationController
-
-        viewController = self.storyboard!.instantiateViewController(withIdentifier: ide)
-
-        if navigationController.viewControllers.first is UIViewController  {
-            mainViewController.hideLeftViewAnimated()  }
-        else {
-            viewController = self.storyboard!.instantiateViewController(withIdentifier: ide)
-            navigationController.setViewControllers([viewController], animated: false)
-            mainViewController.hideLeftView(animated: true, delay: 0.0, completionHandler: nil)
-        }
-
-    }
-
-
-
-
-    @IBAction func sideusermenu(_ sender:UIButton){
-
-        switch sender.tag {
-        case 0:
-            getIdAction(ide:"Home")
-
-            break
-        case 1:
-
-            getIdAction(ide:"UserPharmacy")
-            break
-        case 2:
-
-            getIdAction(ide:"UserDrugs")
-            break
-        default:
-            return
-        }
-
-}
 
 }
 

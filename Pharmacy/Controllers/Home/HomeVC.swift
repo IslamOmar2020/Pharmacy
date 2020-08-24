@@ -23,6 +23,10 @@ class HomeVC: UIViewController {
          Utilities.styleFilledButton(loginBtn)
      }
 
+    @IBAction func sidemenueAction(_ sender: Any) {
+        let sidemenu = self.storyboard!.instantiateViewController(withIdentifier: "MenuVC")
+        self.navigationController?.pushViewController(sidemenu, animated: true)
+    }
     @IBAction func toaddpharmactpage(_ sender: Any) {
         let addpharmacyvc = self.storyboard!.instantiateViewController(withIdentifier: "AddPharmacyVC")
                self.navigationController?.pushViewController(addpharmacyvc, animated: true)
@@ -36,4 +40,6 @@ class HomeVC: UIViewController {
         let loginVC = self.storyboard!.instantiateViewController(withIdentifier: "LoginVC")
              self.navigationController?.pushViewController(loginVC, animated: true)
     }
+    
+    
 }

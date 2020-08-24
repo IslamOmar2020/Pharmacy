@@ -10,22 +10,25 @@ import UIKit
 import FirebaseFirestore
 import FirebaseStorage
 import FirebaseFirestoreSwift
-
+import SDWebImage
 class AddPharmacyVC: UIViewController {
     @Published var pharmacies =  [Pharmacy]()
     @IBOutlet weak var pharmacyaddressTF: UITextField!
     @IBOutlet weak var pharmacyImage: UIImageView!
     @IBOutlet weak var pharmacyTV: UITableView!
     
+    @IBOutlet weak var addimage: UIImageView!
     @IBOutlet weak var pharmacynameTF: UITextField!
     let ref = Firestore.firestore()
     var parameters = [String:Any]()
     
+    @IBOutlet weak var adddata: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        addimage.setRounded()
+        adddata.setRounded() 
         initltable()
-        pharmacyImage.isUserInteractionEnabled = true
+         pharmacyImage.isUserInteractionEnabled = true
         pharmacyImage.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(initPicker)))
     }
     override func viewWillAppear(_ animated: Bool) {
@@ -49,17 +52,18 @@ class AddPharmacyVC: UIViewController {
     @IBAction func addPharmacyAction() {
         //        validateFields()
         //        let error = validateFields()
-        let erroor: String! = "eroor"
+        let error: String! = "error"
         if !validateFields() {
             print("someing error")
         }else{
             uploadImage(image: pharmacyImage.image!) { (url) in
-                if let err = erroor {
+                if let err = error {
                     print("Error fetching docs: \(err)")
                 } else {
-                    
+                    var image = url
                     self.parameters["pharmacyname"] = self.pharmacynameTF.text!
                     self.parameters["pharmacyaddress"] = self.pharmacyaddressTF.text!
+                    self.parameters["pharmacyImage"] = image
                     do{
                         let pharmacyref = self.ref.collection("Pharmacy")
                         
@@ -108,11 +112,14 @@ class AddPharmacyVC: UIViewController {
                     let data =  document.data()
                     let name = data["pharmacyname"] as? String ?? ""
                     let adress = data["pharmacyaddress"] as? String ?? ""
-                    
+                    let image = data["pharmacyimage"] as? String ?? ""
+
                     print(data)
-                    let    comedata = Pharmacy(pharmacyname: name, pharmacyaddress: adress)
+                    
+                    let    comedata = Pharmacy(pharmacyname: name, pharmacyaddress: adress,pharmacyImage: image)
                     
                     self.pharmacies.append(comedata)
+                
                 }
                 print(self.pharmacies)
                 
@@ -165,7 +172,8 @@ extension AddPharmacyVC : UITableViewDataSource , UITableViewDelegate {
         let pharmacy = pharmacies[indexPath.row]
         cell.nameLbl?.text = pharmacy.pharmacyname
         cell.adressLbl?.text = pharmacy.pharmacyaddress
-        // cell.pharmacyimage?.image = pharmacy.
+        cell.pharmacyimage?.sd_setImage(with: URL(string: pharmacy.pharmacyImage ?? ""), completed: nil)
+    
         
         
         return cell
@@ -202,8 +210,8 @@ extension AddPharmacyVC : UIImagePickerControllerDelegate, UINavigationControlle
         let imagename = UUID().uuidString
         let metadata = StorageMetadata()
         metadata.contentType = "image/jpg"
-        let ref = Storage.storage().reference(withPath: "images").child("logo.jpg")
-        ref.putData(data, metadata: nil) { (_, error) in
+        let ref = Storage.storage().reference(withPath: "images").child("imagename")
+        ref.putData(data, metadata: nil) { (metadata, error) in
             if error != nil{
                 print(error?.localizedDescription)
                 return
@@ -211,12 +219,12 @@ extension AddPharmacyVC : UIImagePickerControllerDelegate, UINavigationControlle
             ref.downloadURL { (url, error) in
                 if error != nil{
                     print(error?.localizedDescription)
-                    return
-                }
-                comlition?(url!)
-                print(url)
+                    return }
+               comlition?(url!)
+                    print(url)
             }
-            print("upload succesful")
-        }
-    }
+               print("upload Succesful")
+                
+            }}
 }
+

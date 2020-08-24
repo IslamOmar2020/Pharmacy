@@ -7,11 +7,21 @@
 //
 
 import Foundation
-import FirebaseFirestoreSwift
 
-struct Pharmacy:  Codable {
+
+struct Pharmacy: Codable {
  // @DoucumentID var id: String? = UUID().uuidString
      var pharmacyname : String?
        var pharmacyaddress : String?
-      // var pharmacyImage : UIImage?
+       var pharmacyImage : String?
+    
+    init(pharmacyname: String,pharmacyaddress :String,pharmacyImage : String ){
+        self.pharmacyname = pharmacyname
+        self.pharmacyaddress = pharmacyaddress
+        self.pharmacyImage = pharmacyImage
+     
+          
+           
+       }
+ 
 }
