@@ -42,7 +42,7 @@ class ShowDrugsVC: UIViewController {
                 let    comedata = Drug(drugname: name, drugcount: count, aboutdrug: aboutdrug, drugImage: image)
                 
                 self.drugsarray.append(comedata)
-            print(comedata)
+            //print(comedata)
             }
             print(self.drugsarray)
             
@@ -81,7 +81,16 @@ func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath:
         return drugCell
         
     }
-
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let drugdetailsVC = self.storyboard!.instantiateViewController(identifier: "DrugDetailsVC") as! DrugDetailsVC
+     //   drugdetailsVC.aoutdrug.text = drugsarray[indexPath.row].aboutdrug
+        //drugdetailsVC.count.text = String( drugsarray[indexPath.row].drugcount)
+   //     drugdetailsVC.drugimage =
+        let name = drugsarray[indexPath.row].drugname
+        drugdetailsVC.name?.text = name
+      //  name.text = drugsarray[indexPath.row].drugname
+        self.navigationController?.pushViewController(drugdetailsVC, animated: true)
+    }
         
     }
 

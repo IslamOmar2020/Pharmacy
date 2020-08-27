@@ -1,8 +1,8 @@
 //
-//  AddDrugVC.swift
+//  CategoriesVC.swift
 //  Pharmacy
 //
-//  Created by Islam Omar on 7/26/20.
+//  Created by Islam Omar on 8/27/20.
 //  Copyright © 2020 Islam Omar. All rights reserved.
 //
 
@@ -11,23 +11,26 @@ import Firebase
 import FirebaseFirestore
 import SDWebImage
 import FirebaseStorage
-class AddDrugVC: UIViewController {
-    let imagePicker = UIImagePickerController()
-    @IBOutlet weak var drugimage: UIImageView!
-    @IBOutlet weak var drugcountTF: UITextField!
-    @IBOutlet weak var pharmacynameTF: UITextField!
-    @IBOutlet weak var aboutdrugTF: UITextField!
-    @IBOutlet weak var drugnameTF: UITextField!
+class CategoriesVC: UIViewController {
     
+    @IBOutlet weak var categoriesnameTF: UITextField!
+    
+    @IBOutlet weak var categoriesimage: UIImageView!
+    @IBOutlet weak var categoriesTV: UITableView!
+    let imagePicker = UIImagePickerController()
+    
+  var categories = [Category]()
     let ref = Firestore.firestore()
     var parameters = [String:Any]()
-    //    let query  : QuerySnapshot?
-    //  let doucmentid = ref.collection("Pharmacy").id
     override func viewDidLoad() {
         super.viewDidLoad()
-        drugimage.isUserInteractionEnabled = true
-        drugimage.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(initPicker)))
+        getallCategories()
+        initltable()
+        categoriesimage.isUserInteractionEnabled = true
+        categoriesimage.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(initPicker)))
     }
+    
+    
     func userlist(completion: @escaping (Bool, [User]) -> ()){
         
         //        ref.collection("users").getDocuments() { (querySnapshot, err) in
@@ -42,49 +45,33 @@ class AddDrugVC: UIViewController {
         //            }
         //        }
     }
-    func validateFields() -> Bool{
-        let drugname = drugnameTF.text
-        let drugcount = drugcountTF.text
-        let aboutdrug = aboutdrugTF.text
-        
-        
-        if drugname!.isEmpty || aboutdrug!.isEmpty || drugcount!.isEmpty || drugimage!.image == nil  {
-            // myTextField is not empty here
-            self.showAlertMessage(title: "", message: "Please fill in all fields")
-            return false
-        } else {
-            return true
-        }
-        
-    }
-    @IBAction func adddrugAction(_ sender: Any) {
-        if !validateFields() {
-            print("something error")
+    
+   @IBAction func addCategories(_ sender: Any) {
+    if categoriesnameTF.text!.isEmpty ||  categoriesimage!.image == nil  {
+            print("Pleaase Fill all Fields")
         }else{
             
-            uploadImage(image: drugimage.image!) { (url) in
+            uploadImage(image: categoriesimage.image!) { (url) in
                 if url == nil {
                     print("Error fetching docs:")
                 } else {
                     let image = url!
-                    self.parameters["aboutdrugTF"] = self.aboutdrugTF.text!
-                    self.parameters["drugcount"] = self.drugcountTF.text!
-                    self.parameters["drugname"] = self.drugnameTF.text!
-                    self.parameters["image"] = image.absoluteString
+        self.parameters["categoriesname"] = self.categoriesnameTF.text!
+                   
+        self.parameters["categoriesimage"] = image.absoluteString
                     do{
-                        let drugref = self.ref.collection("Drug")
+                        let categoriesref = self.ref.collection("Categories")
                         
-                        try? drugref.addDocument(data: self.parameters, completion: { err in
+                        try? categoriesref.addDocument(data: self.parameters, completion: { err in
                             if let error = err {
                                 print(error.localizedDescription)
                                 self.showAlertMessage(title: "error", message: "\(error.localizedDescription)")
                                 
                             }
                             print("sccussfly")
-                            self.drugcountTF.text = ""
-                            self.aboutdrugTF.text = ""
-                            self.drugnameTF.text = ""
-                            self.drugimage.image = nil
+                            self.categoriesnameTF.text = ""
+                         
+                            self.categoriesimage.image = nil
                             
                         })
                     }
@@ -96,13 +83,67 @@ class AddDrugVC: UIViewController {
             }
         }
         
-    }}
+    }
+     func getallCategories() {
+        let userReference = Firestore.firestore().collection("Categories")
+        userReference.getDocuments { (snapshot, error) in
+            if let err = error {
+                print("Error fetching docs: \(err)")
+            } else {
+                guard let snap = snapshot else {return}
+                
+                for document in snap.documents {
+                    
+                    let data =  document.data()
+                    let name = data["categoriesname"] as? String ?? ""
+                    let image = data["categoriesimage"] as? String ?? ""
+
+                    print(data)
+                    
+                    let    comedata = Category(categoryname: name, categoryimage: image)
+                    
+                    self.categories.append(comedata)
+                //print(comedata)
+                }
+               
+                
+                self.categoriesTV.reloadData()
+                
+            }
+            }
+       
+    }
+}
+
+extension CategoriesVC : UITableViewDataSource , UITableViewDelegate {
+    
+    func initltable(){
+        categoriesTV.dataSource = self
+        categoriesTV.delegate = self
+    }
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return categories.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = categoriesTV.dequeueReusableCell(withIdentifier: "CategoriesTVC",
+                                                  for: indexPath) as! CategoriesTVC
+        let category = categories[indexPath.row]
+        let image = category.categoryimage
+        cell.categoriesnameLbl?.text = category.categoryname
+        let imageUrl = URL(string: image!)
+        cell.categoriesimage.sd_setImage(with: imageUrl, completed: nil)
+      
+        return cell
+    }
+    
+}
 
 
 
 
 
-extension AddDrugVC : UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+extension CategoriesVC : UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     @objc  func initPicker(){
         let imagepickerV = UIImagePickerController()
@@ -116,7 +157,7 @@ extension AddDrugVC : UIImagePickerControllerDelegate, UINavigationControllerDel
         guard var image = info[.originalImage] as? UIImage  else { return
         }
         picker.dismiss(animated: true, completion: nil)
-        drugimage.image = image
+        categoriesimage.image = image
         // uploadImage(image: image)
     }
     

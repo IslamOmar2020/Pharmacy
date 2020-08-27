@@ -16,23 +16,28 @@
                 <rect key="frame" x="0.0" y="0.0" width="461" height="722"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="TQr-up-YFC">
-                        <rect key="frame" x="0.0" y="100" width="461" height="622"/>
-                    </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lQj-jr-QMk">
-                        <rect key="frame" x="0.0" y="0.0" width="461" height="101"/>
-                        <autoresizingMask key="autoresizingMask"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lQj-jr-QMk">
+                        <rect key="frame" x="0.0" y="622" width="461" height="100"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="100" id="7fJ-9D-Lne"/>
+                        </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="TQr-up-YFC">
+                        <rect key="frame" x="4" y="0.0" width="453" height="614"/>
+                    </imageView>
                 </subviews>
             </view>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="TQr-up-YFC" secondAttribute="trailing" id="PHP-wz-f03"/>
-                <constraint firstItem="TQr-up-YFC" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="SI5-g1-mni"/>
-                <constraint firstItem="TQr-up-YFC" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="100" id="Wuy-aX-bDQ"/>
-                <constraint firstAttribute="bottom" secondItem="TQr-up-YFC" secondAttribute="bottom" id="c9a-GI-2zg"/>
+                <constraint firstItem="TQr-up-YFC" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="4" id="5gz-jI-170"/>
+                <constraint firstAttribute="trailing" secondItem="lQj-jr-QMk" secondAttribute="trailing" id="Fdr-yj-Qd7"/>
+                <constraint firstAttribute="bottom" secondItem="lQj-jr-QMk" secondAttribute="bottom" id="Hul-5i-3Y9"/>
+                <constraint firstItem="lQj-jr-QMk" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="MKI-gu-LvF"/>
+                <constraint firstAttribute="trailing" secondItem="TQr-up-YFC" secondAttribute="trailing" constant="4" id="N6h-WK-xcI"/>
+                <constraint firstItem="lQj-jr-QMk" firstAttribute="top" secondItem="TQr-up-YFC" secondAttribute="bottom" constant="8" id="QUE-8w-9Q7"/>
+                <constraint firstItem="TQr-up-YFC" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="ZE4-ln-TwW"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <size key="customSize" width="461" height="722"/>

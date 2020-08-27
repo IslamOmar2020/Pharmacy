@@ -1,54 +1,41 @@
-////
-////  File.swift
-////  wasfa
-////
-////  Created by osamaaassi on 7/24/20.
-////  Copyright © 2020 osamaaassi. All rights reserved.
-////
 //
-//import Foundation
-//import UIKit
+//  File.swift
+//  wasfa
 //
-//class UserHelper {
-//    
-//    static func isLogin() -> Bool{
-//        return UserHelper.lodeUser() != nil
-//    }
-//    
-//    static func saveUser(user:User)  {
-//        let userdefult = UserDefaults.standard
-//    
-//    }
-//    
-//    static func lodeUser() -> User?{
-//        let userdefult = UserDefaults.standard
-//        guard let token = userdefult.string(forKey: "token") else{
-//            return nil
-//        }
-//      
+//  Created by osamaaassi on 7/24/20.
+//  Copyright © 2020 osamaaassi. All rights reserved.
 //
-//       
-//    }
-//    
-// 
-//    }
-//    
-//    
-//    static var userInfo : Results?  {
-//        set {
-//            guard newValue != nil else {
-//                UserDefaults.standard.removeObject(forKey: "CurrentUser");
-//                return;
-//            }
-//            let encodedData = try? PropertyListEncoder().encode(newValue)
-//            UserDefaults.standard.set(encodedData, forKey:"CurrentUser")
-//            UserDefaults.standard.synchronize();
-//        }
-//        get {
-//            if let data = UserDefaults.standard.value(forKey:"CurrentUser") as? Data {
-//                return try? PropertyListDecoder().decode(Results.self, from:data)
-//            }
-//            return nil
-//        }
-//    }
-//}
+
+import Foundation
+import UIKit
+
+class UserHelper {
+    
+    static func isLogin() -> Bool{
+        return UserHelper.loadUser() != nil
+            
+    }
+    
+    static func saveUser(user:User)  {
+        let userdefult = UserDefaults.standard
+    
+    }
+    
+    static func loadUser() -> User?{
+        let userdefult = UserDefaults.standard
+        guard let token = userdefult.string(forKey: "token") else{
+            return nil
+        }
+
+        let name =  userdefult.string(forKey: "name")
+        let email = userdefult.string(forKey: "email")
+        let image = userdefult.string(forKey: "image")
+        let objUser =  Results(name: name, id: 0, token: token, image: image, email: email)
+        let user = User()
+            return user
+       
+    }
+
+ 
+    }
+

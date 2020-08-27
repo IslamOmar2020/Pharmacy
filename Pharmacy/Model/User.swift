@@ -10,6 +10,7 @@ import Foundation
 import Firebase
 import FirebaseAuth
 
+import Foundation
 
 class User {
     private var id:Int = 0
@@ -35,4 +36,18 @@ class User {
       // ...
     }
 }
+}
+// MARK: - Results
+class Results: Codable {
+    var name: String?
+    let id: Int?
+    let token, image, email: String?
+
+    init(name: String?, id: Int?, token: String?, image: String?, email: String?) {
+        self.name = name
+        self.id = id
+        self.token = token
+        self.image = image
+        self.email = email
+    }
 }

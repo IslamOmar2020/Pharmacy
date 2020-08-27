@@ -24,11 +24,19 @@ class MenuVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+      initData()
 
-
-      // getDada()
     }
-
+    func initData(){
+        if UserHelper.isLogin(){
+        //    let user = UserHelper.loadUser()
+       //     username.text = user.
+            authrizeLogin.setTitle("Logout", for: .normal)
+        } else {
+            username.text = "Guest"
+            authrizeLogin.setTitle("Login", for: .normal)
+        }
+    }
         override func viewDidDisappear(_ animated: Bool) {
         //  getDada()//4
         }
@@ -64,7 +72,10 @@ class MenuVC: UIViewController {
             self.present(vc,animated: true,completion: nil)
         }
     }
-
+    @IBAction func CategoriesAction(_ sender: Any) {
+         let vc = self.storyboard!.instantiateViewController(identifier: "CategoriesCV")
+         self.present(vc,animated: true,completion: nil)
+      }
 
 }
 
