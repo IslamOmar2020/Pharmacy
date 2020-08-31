@@ -37,12 +37,7 @@ class MenuVC: UIViewController {
             authrizeLogin.setTitle("Login", for: .normal)
         }
     }
-        override func viewDidDisappear(_ animated: Bool) {
-        //  getDada()//4
-        }
-        override func viewWillDisappear(_ animated: Bool) {
-      //      getDada()//3
-        }
+
   
         override func viewDidAppear(_ animated: Bool) {
           // getDada()//2 // back2
@@ -63,18 +58,22 @@ class MenuVC: UIViewController {
     
     @IBAction func authrizeAction(){
         if Auth.auth().isSignIn(withEmailLink: "email"){
+            let vc = self.storyboard!.instantiateViewController(withIdentifier: "Homevc")
+                        self.navigationController?.pushViewController(vc, animated: true)
             print("is login")
         }
         //getDada()
         
         else {
-             let vc = self.storyboard!.instantiateViewController(identifier: "LoginCV")
-            self.present(vc,animated: true,completion: nil)
+            let vc = self.storyboard!.instantiateViewController(withIdentifier: "LoginVC")
+             self.navigationController?.pushViewController(vc, animated: true)
+
         }
     }
     @IBAction func CategoriesAction(_ sender: Any) {
-         let vc = self.storyboard!.instantiateViewController(identifier: "CategoriesCV")
-         self.present(vc,animated: true,completion: nil)
+        let vc = self.storyboard!.instantiateViewController(withIdentifier: "ShowCategoriesVC")
+        self.navigationController?.pushViewController(vc, animated: true)
+  
       }
 
 }

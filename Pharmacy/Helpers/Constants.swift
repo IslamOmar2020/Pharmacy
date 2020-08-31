@@ -8,7 +8,7 @@
 
 import Foundation
 struct Constants {
-    struct Stotyboard {
-     static   let homeVC = "HomeVC"
-    }
+//    struct Stotyboard {
+//     static   let homeVC = "HomeVC"
+//    }
 }

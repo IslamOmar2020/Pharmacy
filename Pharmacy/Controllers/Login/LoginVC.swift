@@ -15,9 +15,8 @@ import FirebaseAuth
 
 class LoginVC: UIViewController {
 
-    
+   
     @IBOutlet weak var emailTF: UITextField!
-    
     @IBOutlet weak var loginBtn: UIButton!
     @IBOutlet weak var passwordTF: UITextField!
    var getLoginDetails = [LoginData]()
@@ -32,13 +31,14 @@ class LoginVC: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+    
+      
     }
+      
+    
     func goToHome(){
-        let storyboard = UIStoryboard(name: "HomeVC", bundle: nil)
-        let homeVC = storyboard.instantiateViewController(withIdentifier: "HomeVC")
-        self.present(homeVC, animated: true, completion: nil)
-        
+        let homeVC = self.storyboard!.instantiateViewController(withIdentifier: "PharmacyHomeVC")
+               self.navigationController?.pushViewController(homeVC, animated: true)
     }
     // Handle Action Button 'login'
     @IBAction func login(_ sender: Any) {
@@ -102,17 +102,23 @@ class LoginVC: UIViewController {
     }
         
     @IBAction func loginAction() {
-        let email = emailTF.text!.trimmingCharacters(in: .whitespacesAndNewlines)
-        let password = passwordTF.text!.trimmingCharacters(in: .whitespacesAndNewlines)
-        Auth.auth().signIn(withEmail: email,password: password){
-            (result , error) in
-            if error != nil {
-                print(error!)
-            }
-            else{
-
-                self.goToHome()
-            }
+        guard let text = emailTF.text, !text.isEmpty else {
+            showMessage(msg: "Email can't be Empty")
+            return
+        }
+        
+        guard let text2 = passwordTF.text, !text2.isEmpty else {
+            showMessage(msg: "Password can't be Empty")
+            return
+        }
+        
+        if Auth.auth().currentUser != nil{
+            
+            saveUserInDefualt()
+            self.goToHome()
+        }else{
+            
+            showMessage(msg: "Username or Password is Wrong")
         }
     }
    @IBAction func createAcountAction(_ sender : Any) {

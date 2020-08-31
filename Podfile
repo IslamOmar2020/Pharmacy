@@ -16,4 +16,6 @@ pod 'Firebase/Firestore'
 pod 'Firebase/Storage'
 pod ‘FirebaseFirestoreSwift’
 pod 'LGSideMenuController'
+pod "ImageSlideshow/SDWebImage"
+pod 'LGButton'
 end

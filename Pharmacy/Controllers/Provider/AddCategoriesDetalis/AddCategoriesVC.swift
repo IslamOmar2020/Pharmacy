@@ -11,10 +11,11 @@ import Firebase
 import FirebaseFirestore
 import SDWebImage
 import FirebaseStorage
-class CategoriesVC: UIViewController {
+class AddCategoriesVC: UIViewController {
     
     @IBOutlet weak var categoriesnameTF: UITextField!
     
+    @IBOutlet weak var categoriesV: UIView!
     @IBOutlet weak var categoriesimage: UIImageView!
     @IBOutlet weak var categoriesTV: UITableView!
     let imagePicker = UIImagePickerController()
@@ -25,6 +26,8 @@ class CategoriesVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         getallCategories()
+        categoriesV.showSpinner(onView: self.view)
+       
         initltable()
         categoriesimage.isUserInteractionEnabled = true
         categoriesimage.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(initPicker)))
@@ -50,7 +53,7 @@ class CategoriesVC: UIViewController {
     if categoriesnameTF.text!.isEmpty ||  categoriesimage!.image == nil  {
             print("Pleaase Fill all Fields")
         }else{
-            
+             self.categoriesV.showSpinner(onView: self.view)
             uploadImage(image: categoriesimage.image!) { (url) in
                 if url == nil {
                     print("Error fetching docs:")
@@ -70,8 +73,11 @@ class CategoriesVC: UIViewController {
                             }
                             print("sccussfly")
                             self.categoriesnameTF.text = ""
-                         
-                            self.categoriesimage.image = nil
+                           // self.categoriesimage.image.
+                           
+                            self.categoriesTV.reloadData()
+                            self.categoriesV.removeSpinner()
+                            
                             
                         })
                     }
@@ -82,7 +88,7 @@ class CategoriesVC: UIViewController {
                 }
             }
         }
-        
+    
     }
      func getallCategories() {
         let userReference = Firestore.firestore().collection("Categories")
@@ -98,7 +104,7 @@ class CategoriesVC: UIViewController {
                     let name = data["categoriesname"] as? String ?? ""
                     let image = data["categoriesimage"] as? String ?? ""
 
-                    print(data)
+          //          print(data)
                     
                     let    comedata = Category(categoryname: name, categoryimage: image)
                     
@@ -108,14 +114,14 @@ class CategoriesVC: UIViewController {
                
                 
                 self.categoriesTV.reloadData()
-                
+                self.categoriesV.removeSpinner()
             }
             }
        
     }
 }
 
-extension CategoriesVC : UITableViewDataSource , UITableViewDelegate {
+extension AddCategoriesVC : UITableViewDataSource , UITableViewDelegate {
     
     func initltable(){
         categoriesTV.dataSource = self
@@ -126,8 +132,7 @@ extension CategoriesVC : UITableViewDataSource , UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = categoriesTV.dequeueReusableCell(withIdentifier: "CategoriesTVC",
-                                                  for: indexPath) as! CategoriesTVC
+        let cell = categoriesTV.dequeueReusableCell(withIdentifier: "AddCategoriesTVC",for: indexPath) as! AddCategoriesTVC
         let category = categories[indexPath.row]
         let image = category.categoryimage
         cell.categoriesnameLbl?.text = category.categoryname
@@ -143,7 +148,7 @@ extension CategoriesVC : UITableViewDataSource , UITableViewDelegate {
 
 
 
-extension CategoriesVC : UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+extension AddCategoriesVC : UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     @objc  func initPicker(){
         let imagepickerV = UIImagePickerController()
@@ -186,5 +191,6 @@ extension CategoriesVC : UIImagePickerControllerDelegate, UINavigationController
             print("upload Succesful")
             
         }}
+   
 }
 

@@ -1,16 +1,16 @@
 //
-//  CategoriesTVC.swift
+//  ShowCategoriesTVC.swift
 //  Pharmacy
 //
-//  Created by Islam Omar on 8/27/20.
+//  Created by Islam Omar on 8/28/20.
 //  Copyright © 2020 Islam Omar. All rights reserved.
 //
 
 import UIKit
 
-class CategoriesTVC: UITableViewCell {
-       @IBOutlet weak var categoriesnameLbl: UILabel!
-  @IBOutlet weak var categoriesimage: UIImageView!
+class ShowCategoriesTVC: UITableViewCell {
+    @IBOutlet weak var showcategoriesnameLbl: UILabel!
+    @IBOutlet weak var showcategoriesimage: UIImageView!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

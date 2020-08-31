@@ -71,6 +71,8 @@ class SignupVC: UIViewController {
             let phonenum = phonenumTF.text!.trimmingCharacters(in: .whitespacesAndNewlines)
             let password = passwordTF.text!.trimmingCharacters(in: .whitespacesAndNewlines)
             let email = emailTF.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+            
+            
             //Create the user
             Auth.auth().createUser(withEmail: email, password: password  ){(result,err) in
                 if let error = err as NSError? {
@@ -206,7 +208,9 @@ class SignupVC: UIViewController {
                     print(url)
                 }
                 print("upload Succesful")
-                
             }}
+        func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+            dismiss(animated: true, completion: nil)
+        }
 }
 

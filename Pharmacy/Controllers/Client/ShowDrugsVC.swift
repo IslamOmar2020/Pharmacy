@@ -37,7 +37,7 @@ class ShowDrugsVC: UIViewController {
                 let aboutdrug = data["aboutdrug"] as? String ?? ""
                 let image = data["drugimage"] as? String ?? ""
 
-                print(data)
+              //  print(data)
                 
                 let    comedata = Drug(drugname: name, drugcount: count, aboutdrug: aboutdrug, drugImage: image)
                 
@@ -73,9 +73,10 @@ func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection s
 func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
      
         let drugCell = collectionView.dequeueReusableCell(withReuseIdentifier: "ShowDrugsCVC", for: indexPath) as! ShowDrugsCVC
-    let image = drugsarray[indexPath.row].drugImage
-    let imageUrl = URL(string: image!)
-    drugCell.drugimage.sd_setImage(with: imageUrl, completed: nil)
+    drugCell.drugimage.image = UIImage(named : drugsarray[indexPath.row].drugImage!)
+//    let image = drugsarray[indexPath.row].drugImage
+//    let imageUrl = URL(string: image!)
+//    drugCell.drugimage.sd_setImage(with: imageUrl, completed: nil)
     drugCell.drugnameLbl.text = drugsarray[indexPath.row].drugname
 
         return drugCell

@@ -335,6 +335,9 @@ PODS:
   - ImageSlideshow (1.9.1):
     - ImageSlideshow/Core (= 1.9.1)
   - ImageSlideshow/Core (1.9.1)
+  - ImageSlideshow/SDWebImage (1.9.1):
+    - ImageSlideshow/Core
+    - SDWebImage (>= 3.7)
   - leveldb-library (1.22)
   - LGSideMenuController (2.1.1)
   - nanopb (1.30905.0):
@@ -355,6 +358,7 @@ DEPENDENCIES:
   - Firebase/Storage
   - FirebaseFirestoreSwift
   - ImageSlideshow (~> 1.9.0)
+  - ImageSlideshow/SDWebImage
   - LGSideMenuController
   - SDWebImage (~> 5.0)
 
@@ -411,6 +415,6 @@ SPEC CHECKSUMS:
   PromisesObjC: b48e0338dbbac2207e611750777895f7a5811b75
   SDWebImage: cf6922231e95550934da2ada0f20f2becf2ceba9
 
-PODFILE CHECKSUM: f467d5534a2fdcbc25605ad59ad1dc67283f4e3c
+PODFILE CHECKSUM: bdcb6795e57e7228e4a07125f36d91d9f30e892a
 
 COCOAPODS: 1.9.3

@@ -1,5 +1,5 @@
 //
-//  PharmacyHomeCVC.swift
+//  ClientPageCVC.swift
 //  Pharmacy
 //
 //  Created by Islam Omar on 8/29/20.
@@ -8,8 +8,7 @@
 
 import UIKit
 
-class PharmacyHomeCVC: UICollectionViewCell {
-    @IBOutlet weak var title: UILabel!
-    
+class ClientPageCVC: UICollectionViewCell {
+    @IBOutlet weak var nameLbl: UILabel!
     @IBOutlet weak var image: UIImageView!
 }

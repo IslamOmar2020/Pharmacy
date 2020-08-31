@@ -8,8 +8,10 @@
 import UIKit
 import Foundation
 
+fileprivate var aView : UIView?
+
 extension UIViewController {
-    
+
     func showAlertMessage(title :String = "", message : String){
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "ok", style: .default, handler: nil))
