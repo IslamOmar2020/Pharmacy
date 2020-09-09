@@ -15,7 +15,8 @@ import FirebaseStorage
 class PharmacyHomeVC: UIViewController {
     var videoPlayer : AVPlayer?
     var videoPlayerlayer : AVPlayerLayer?
-    var arraydata = [HomeData]()
+    var arraydata = [Information]()
+  
      @IBOutlet weak var homeCV: UICollectionView!
     @IBOutlet weak var myview: UIView!
     override func viewDidLoad() {
@@ -71,7 +72,7 @@ class PharmacyHomeVC: UIViewController {
                      let detalis = data["body"] as? String ?? ""
                     // print(data)
                      
-                     let    comedata = HomeData(dataname: name, dataimage: image, datadetalis: detalis)
+                    let    comedata = Information(infotitle: name, infoimage: image, infodetalis: detalis)
                      
                      self.arraydata.append(comedata)
                      //print(comedata)
@@ -100,23 +101,24 @@ func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection s
  
 func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PharmacyHomeCVC", for: indexPath) as! PharmacyHomeCVC
-    let image = arraydata[indexPath.row].dataimage
+//    let image = arraydata[indexPath.row].dataimage
 //    let imageUrl = URL(string: image!)
-    cell.title.text = arraydata[indexPath.row].dataname
-    cell.image.image = UIImage(named: image!)
+    cell.title.text = arraydata[indexPath.row].infotitle
+    cell.image.sd_setImage(with: URL(string: arraydata[indexPath.row].infoimage ?? "")!, completed: nil)
 
 //    cell.image.sd_setImage(with: imageUrl, completed: nil)
         return cell
         
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let vc = self.storyboard!.instantiateViewController(identifier: "InformationVC") as! InformationVC
-        self.navigationController?.pushViewController(vc, animated: true)
-        vc.aboutinfo.text = arraydata[indexPath.row].datadetalis
-        vc.titleLbl.text = arraydata[indexPath.row].dataname
-        vc.imageinfo.image = UIImage(contentsOfFile: arraydata[indexPath.row].dataimage!)
+        let infoDetails :InformationVC = self.storyboard?.instantiateViewController(identifier: "InformationVC") as! InformationVC
+        infoDetails.infoVCobject = arraydata[indexPath.row]
+        
+        self.navigationController?.pushViewController(infoDetails, animated: true)
+        
+      
+    
 
-        
     }
-        
+    
     }

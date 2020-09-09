@@ -186,7 +186,7 @@ extension AddPharmacyVC : UIImagePickerControllerDelegate, UINavigationControlle
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        guard var image = info[.originalImage] as? UIImage  else { return
+        guard let image = info[.originalImage] as? UIImage  else { return
         }
         picker.dismiss(animated: true, completion: nil)
         pharmacyImage.image = image
@@ -198,18 +198,18 @@ extension AddPharmacyVC : UIImagePickerControllerDelegate, UINavigationControlle
     func uploadImage(image :UIImage ,comlition: ((URL)->Void)?){
         
         guard let data = image.jpegData(compressionQuality: 0.2) else { return  }
-        let imagename = UUID().uuidString
+       // let imagename = UUID().uuidString
         let metadata = StorageMetadata()
         metadata.contentType = "image/jpg"
         let ref = Storage.storage().reference(withPath: "images").child("imagename")
         ref.putData(data, metadata: nil) { (metadata, error) in
             if error != nil{
-                print(error?.localizedDescription)
+                print(error!.localizedDescription)
                 return
             }
             ref.downloadURL { (url, error) in
                 if error != nil{
-                    print(error?.localizedDescription)
+                    print(error!.localizedDescription)
                     return }
                 comlition?(url!)
                 // print(url)

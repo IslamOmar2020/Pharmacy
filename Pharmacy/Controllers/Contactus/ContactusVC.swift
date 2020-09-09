@@ -44,8 +44,6 @@ var cell : UITableViewCell? = contactusTV!.dequeueReusableCell(withIdentifier: "
         return cell!
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let vc = self.storyboard!.instantiateViewController(withIdentifier: "ContactusTVC")
-        self.navigationController?.pushViewController(vc, animated: true)
-        
+    
     }
 }

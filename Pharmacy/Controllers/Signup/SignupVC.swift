@@ -28,11 +28,14 @@ class SignupVC: UIViewController {
     var users : [User] = []
     // add UIActivity
     override func viewDidLoad() {
+       
         super.viewDidLoad()
         setUpelements()
         userimage.setRounded()
         userimage.isUserInteractionEnabled = true
         userimage.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(initPicker)))
+        passwordTF.autocorrectionType = .no
+
     }
     //    override func viewWillDisappear(_ animated: Bool) {
     //        Auth.auth().removeStateDidChangeListener(handler!)

@@ -10,11 +10,11 @@
 		719E4F723C90AC0A1DA73205 /* Pods_Pharmacy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6732BF7F7D5863D173E2C253 /* Pods_Pharmacy.framework */; };
 		A803633524F839A10024CF4B /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = A803633424F839A10024CF4B /* Category.swift */; };
 		A80C570824FCD55600591E61 /* InformationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A80C570724FCD55600591E61 /* InformationVC.swift */; };
+		A80D728E25019AC7007DCD92 /* ListallpharmacyTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A80D728D25019AC7007DCD92 /* ListallpharmacyTVC.swift */; };
 		A8104A5724F7FF87006468F5 /* AddCategoriesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8104A5624F7FF87006468F5 /* AddCategoriesVC.swift */; };
 		A8147EAC24D211930073B233 /* Utilites.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8147EAB24D211930073B233 /* Utilites.swift */; };
 		A8147EAE24D221D40073B233 /* Optional.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8147EAD24D221D40073B233 /* Optional.swift */; };
 		A8147EB024D232190073B233 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A8147EAF24D232190073B233 /* GoogleService-Info.plist */; };
-		A819B56024FAC67A00025765 /* HomeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A819B55F24FAC67A00025765 /* HomeData.swift */; };
 		A819B56224FACEDB00025765 /* PharmacyHomeCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A819B56124FACEDB00025765 /* PharmacyHomeCVC.swift */; };
 		A833869424F37FCA00604977 /* ShowDrugsCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A833869224F37FCA00604977 /* ShowDrugsCVC.swift */; };
 		A833869524F37FCA00604977 /* ShowDrugsCVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = A833869324F37FCA00604977 /* ShowDrugsCVC.xib */; };
@@ -59,6 +59,7 @@
 		A885521B24DC869D00BCD737 /* Pharmacy.swift in Sources */ = {isa = PBXBuildFile; fileRef = A885521A24DC869D00BCD737 /* Pharmacy.swift */; };
 		A887DDE324D96FF2002842D3 /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A887DDE224D96FF2002842D3 /* MainVC.swift */; };
 		A887DDE524DA0139002842D3 /* AddPharmacyVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A887DDE424DA0139002842D3 /* AddPharmacyVC.swift */; };
+		A88E6BDF250386FB0066014A /* Information.swift in Sources */ = {isa = PBXBuildFile; fileRef = A88E6BDE250386FB0066014A /* Information.swift */; };
 		A891873524D8398D00A0F215 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = A891873424D8398D00A0F215 /* User.swift */; };
 		A891873724D83A8800A0F215 /* SignupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A891873624D83A8800A0F215 /* SignupVC.swift */; };
 		A891873924D85E1300A0F215 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A891873824D85E1300A0F215 /* Constants.swift */; };
@@ -66,6 +67,26 @@
 		A89E028824ED96ED00BE40B3 /* UserType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A89E028724ED96ED00BE40B3 /* UserType.swift */; };
 		A89E028A24EDAED500BE40B3 /* TaskModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A89E028924EDAED500BE40B3 /* TaskModel.swift */; };
 		A8A5F75B24D789490001748E /* FIRFirestoreService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A5F75A24D789490001748E /* FIRFirestoreService.swift */; };
+		A8AC261D2503D93300A7DB43 /* iTunesArtwork@1x.png in Resources */ = {isa = PBXBuildFile; fileRef = A8AC26082503D93300A7DB43 /* iTunesArtwork@1x.png */; };
+		A8AC261E2503D93300A7DB43 /* Icon-App-76x76@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A8AC260A2503D93300A7DB43 /* Icon-App-76x76@2x.png */; };
+		A8AC261F2503D93300A7DB43 /* Icon-App-29x29@1x.png in Resources */ = {isa = PBXBuildFile; fileRef = A8AC260B2503D93300A7DB43 /* Icon-App-29x29@1x.png */; };
+		A8AC26202503D93300A7DB43 /* Icon-App-40x40@1x.png in Resources */ = {isa = PBXBuildFile; fileRef = A8AC260C2503D93300A7DB43 /* Icon-App-40x40@1x.png */; };
+		A8AC26212503D93300A7DB43 /* Icon-App-20x20@1x.png in Resources */ = {isa = PBXBuildFile; fileRef = A8AC260D2503D93300A7DB43 /* Icon-App-20x20@1x.png */; };
+		A8AC26222503D93300A7DB43 /* Icon-App-83.5x83.5@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A8AC260E2503D93300A7DB43 /* Icon-App-83.5x83.5@2x.png */; };
+		A8AC26232503D93300A7DB43 /* Icon-App-20x20@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = A8AC260F2503D93300A7DB43 /* Icon-App-20x20@3x.png */; };
+		A8AC26242503D93300A7DB43 /* ItunesArtwork@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A8AC26102503D93300A7DB43 /* ItunesArtwork@2x.png */; };
+		A8AC26252503D93300A7DB43 /* Contents.json in Resources */ = {isa = PBXBuildFile; fileRef = A8AC26112503D93300A7DB43 /* Contents.json */; };
+		A8AC26262503D93300A7DB43 /* Icon-App-20x20@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A8AC26122503D93300A7DB43 /* Icon-App-20x20@2x.png */; };
+		A8AC26272503D93300A7DB43 /* Icon-App-29x29@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = A8AC26132503D93300A7DB43 /* Icon-App-29x29@3x.png */; };
+		A8AC26282503D93300A7DB43 /* Icon-App-40x40@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A8AC26142503D93300A7DB43 /* Icon-App-40x40@2x.png */; };
+		A8AC26292503D93300A7DB43 /* Icon-App-60x60@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = A8AC26152503D93300A7DB43 /* Icon-App-60x60@3x.png */; };
+		A8AC262A2503D93300A7DB43 /* Icon-App-60x60@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A8AC26162503D93300A7DB43 /* Icon-App-60x60@2x.png */; };
+		A8AC262B2503D93300A7DB43 /* Icon-App-76x76@1x.png in Resources */ = {isa = PBXBuildFile; fileRef = A8AC26172503D93300A7DB43 /* Icon-App-76x76@1x.png */; };
+		A8AC262C2503D93300A7DB43 /* Icon-App-40x40@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = A8AC26182503D93300A7DB43 /* Icon-App-40x40@3x.png */; };
+		A8AC262D2503D93300A7DB43 /* Icon-App-29x29@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A8AC26192503D93300A7DB43 /* Icon-App-29x29@2x.png */; };
+		A8AC262E2503D93300A7DB43 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = A8AC261A2503D93300A7DB43 /* README.md */; };
+		A8AC262F2503D93300A7DB43 /* iTunesArtwork@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A8AC261B2503D93300A7DB43 /* iTunesArtwork@2x.png */; };
+		A8AC26302503D93400A7DB43 /* iTunesArtwork@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = A8AC261C2503D93300A7DB43 /* iTunesArtwork@3x.png */; };
 		A8ADBF4F24E36BB300D1C408 /* FirestoreReferenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8ADBF4E24E36BB300D1C408 /* FirestoreReferenceManager.swift */; };
 		A8CFB3DD24ED0594001EB692 /* ProviderVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8CFB3DC24ED0594001EB692 /* ProviderVC.swift */; };
 		A8D6AB5524EC63490071D6E9 /* UserHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8D6AB5424EC63490071D6E9 /* UserHelper.swift */; };
@@ -80,11 +101,11 @@
 		6732BF7F7D5863D173E2C253 /* Pods_Pharmacy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Pharmacy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A803633424F839A10024CF4B /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		A80C570724FCD55600591E61 /* InformationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationVC.swift; sourceTree = "<group>"; };
+		A80D728D25019AC7007DCD92 /* ListallpharmacyTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListallpharmacyTVC.swift; sourceTree = "<group>"; };
 		A8104A5624F7FF87006468F5 /* AddCategoriesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCategoriesVC.swift; sourceTree = "<group>"; };
 		A8147EAB24D211930073B233 /* Utilites.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilites.swift; sourceTree = "<group>"; };
 		A8147EAD24D221D40073B233 /* Optional.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Optional.swift; sourceTree = "<group>"; };
 		A8147EAF24D232190073B233 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		A819B55F24FAC67A00025765 /* HomeData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeData.swift; sourceTree = "<group>"; };
 		A819B56124FACEDB00025765 /* PharmacyHomeCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PharmacyHomeCVC.swift; sourceTree = "<group>"; };
 		A833869224F37FCA00604977 /* ShowDrugsCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowDrugsCVC.swift; sourceTree = "<group>"; };
 		A833869324F37FCA00604977 /* ShowDrugsCVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShowDrugsCVC.xib; sourceTree = "<group>"; };
@@ -131,6 +152,7 @@
 		A885521A24DC869D00BCD737 /* Pharmacy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pharmacy.swift; sourceTree = "<group>"; };
 		A887DDE224D96FF2002842D3 /* MainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
 		A887DDE424DA0139002842D3 /* AddPharmacyVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPharmacyVC.swift; sourceTree = "<group>"; };
+		A88E6BDE250386FB0066014A /* Information.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Information.swift; sourceTree = "<group>"; };
 		A891873424D8398D00A0F215 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		A891873624D83A8800A0F215 /* SignupVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupVC.swift; sourceTree = "<group>"; };
 		A891873824D85E1300A0F215 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -138,6 +160,26 @@
 		A89E028724ED96ED00BE40B3 /* UserType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserType.swift; sourceTree = "<group>"; };
 		A89E028924EDAED500BE40B3 /* TaskModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskModel.swift; sourceTree = "<group>"; };
 		A8A5F75A24D789490001748E /* FIRFirestoreService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FIRFirestoreService.swift; sourceTree = "<group>"; };
+		A8AC26082503D93300A7DB43 /* iTunesArtwork@1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iTunesArtwork@1x.png"; sourceTree = "<group>"; };
+		A8AC260A2503D93300A7DB43 /* Icon-App-76x76@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-App-76x76@2x.png"; sourceTree = "<group>"; };
+		A8AC260B2503D93300A7DB43 /* Icon-App-29x29@1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-App-29x29@1x.png"; sourceTree = "<group>"; };
+		A8AC260C2503D93300A7DB43 /* Icon-App-40x40@1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-App-40x40@1x.png"; sourceTree = "<group>"; };
+		A8AC260D2503D93300A7DB43 /* Icon-App-20x20@1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-App-20x20@1x.png"; sourceTree = "<group>"; };
+		A8AC260E2503D93300A7DB43 /* Icon-App-83.5x83.5@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-App-83.5x83.5@2x.png"; sourceTree = "<group>"; };
+		A8AC260F2503D93300A7DB43 /* Icon-App-20x20@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-App-20x20@3x.png"; sourceTree = "<group>"; };
+		A8AC26102503D93300A7DB43 /* ItunesArtwork@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ItunesArtwork@2x.png"; sourceTree = "<group>"; };
+		A8AC26112503D93300A7DB43 /* Contents.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Contents.json; sourceTree = "<group>"; };
+		A8AC26122503D93300A7DB43 /* Icon-App-20x20@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-App-20x20@2x.png"; sourceTree = "<group>"; };
+		A8AC26132503D93300A7DB43 /* Icon-App-29x29@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-App-29x29@3x.png"; sourceTree = "<group>"; };
+		A8AC26142503D93300A7DB43 /* Icon-App-40x40@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-App-40x40@2x.png"; sourceTree = "<group>"; };
+		A8AC26152503D93300A7DB43 /* Icon-App-60x60@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-App-60x60@3x.png"; sourceTree = "<group>"; };
+		A8AC26162503D93300A7DB43 /* Icon-App-60x60@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-App-60x60@2x.png"; sourceTree = "<group>"; };
+		A8AC26172503D93300A7DB43 /* Icon-App-76x76@1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-App-76x76@1x.png"; sourceTree = "<group>"; };
+		A8AC26182503D93300A7DB43 /* Icon-App-40x40@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-App-40x40@3x.png"; sourceTree = "<group>"; };
+		A8AC26192503D93300A7DB43 /* Icon-App-29x29@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-App-29x29@2x.png"; sourceTree = "<group>"; };
+		A8AC261A2503D93300A7DB43 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		A8AC261B2503D93300A7DB43 /* iTunesArtwork@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iTunesArtwork@2x.png"; sourceTree = "<group>"; };
+		A8AC261C2503D93300A7DB43 /* iTunesArtwork@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iTunesArtwork@3x.png"; sourceTree = "<group>"; };
 		A8ADBF4E24E36BB300D1C408 /* FirestoreReferenceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreReferenceManager.swift; sourceTree = "<group>"; };
 		A8CFB3DC24ED0594001EB692 /* ProviderVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProviderVC.swift; sourceTree = "<group>"; };
 		A8D6AB5424EC63490071D6E9 /* UserHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserHelper.swift; sourceTree = "<group>"; };
@@ -168,6 +210,14 @@
 				A80C570724FCD55600591E61 /* InformationVC.swift */,
 			);
 			path = Information;
+			sourceTree = "<group>";
+		};
+		A80D728C25019AA0007DCD92 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				A80D728D25019AC7007DCD92 /* ListallpharmacyTVC.swift */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		A8147EAA24D211690073B233 /* Helpers */ = {
@@ -277,7 +327,7 @@
 				A8E0C79024F383580081F653 /* Drug.swift */,
 				A803633424F839A10024CF4B /* Category.swift */,
 				A883F1F724FA718E00E8562E /* CategoryDetails.swift */,
-				A819B55F24FAC67A00025765 /* HomeData.swift */,
+				A88E6BDE250386FB0066014A /* Information.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -417,6 +467,7 @@
 				A877AF1324CDBA9200F16363 /* images */,
 				A87A962924C9D2F0001A4E36 /* LaunchScreen.storyboard */,
 				A87A962C24C9D2F0001A4E36 /* Info.plist */,
+				A8AC26072503D93300A7DB43 /* ios */,
 				A8147EAF24D232190073B233 /* GoogleService-Info.plist */,
 				A87A962424C9D2EF001A4E36 /* Pharmacy.xcdatamodeld */,
 			);
@@ -501,6 +552,41 @@
 			path = DrugDetails;
 			sourceTree = "<group>";
 		};
+		A8AC26072503D93300A7DB43 /* ios */ = {
+			isa = PBXGroup;
+			children = (
+				A8AC26082503D93300A7DB43 /* iTunesArtwork@1x.png */,
+				A8AC26092503D93300A7DB43 /* AppIcon.appiconset */,
+				A8AC261A2503D93300A7DB43 /* README.md */,
+				A8AC261B2503D93300A7DB43 /* iTunesArtwork@2x.png */,
+				A8AC261C2503D93300A7DB43 /* iTunesArtwork@3x.png */,
+			);
+			path = ios;
+			sourceTree = "<group>";
+		};
+		A8AC26092503D93300A7DB43 /* AppIcon.appiconset */ = {
+			isa = PBXGroup;
+			children = (
+				A8AC260A2503D93300A7DB43 /* Icon-App-76x76@2x.png */,
+				A8AC260B2503D93300A7DB43 /* Icon-App-29x29@1x.png */,
+				A8AC260C2503D93300A7DB43 /* Icon-App-40x40@1x.png */,
+				A8AC260D2503D93300A7DB43 /* Icon-App-20x20@1x.png */,
+				A8AC260E2503D93300A7DB43 /* Icon-App-83.5x83.5@2x.png */,
+				A8AC260F2503D93300A7DB43 /* Icon-App-20x20@3x.png */,
+				A8AC26102503D93300A7DB43 /* ItunesArtwork@2x.png */,
+				A8AC26112503D93300A7DB43 /* Contents.json */,
+				A8AC26122503D93300A7DB43 /* Icon-App-20x20@2x.png */,
+				A8AC26132503D93300A7DB43 /* Icon-App-29x29@3x.png */,
+				A8AC26142503D93300A7DB43 /* Icon-App-40x40@2x.png */,
+				A8AC26152503D93300A7DB43 /* Icon-App-60x60@3x.png */,
+				A8AC26162503D93300A7DB43 /* Icon-App-60x60@2x.png */,
+				A8AC26172503D93300A7DB43 /* Icon-App-76x76@1x.png */,
+				A8AC26182503D93300A7DB43 /* Icon-App-40x40@3x.png */,
+				A8AC26192503D93300A7DB43 /* Icon-App-29x29@2x.png */,
+			);
+			path = AppIcon.appiconset;
+			sourceTree = "<group>";
+		};
 		A8FD74A324E7241700EE89D4 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
@@ -514,6 +600,7 @@
 			isa = PBXGroup;
 			children = (
 				A8E2296024F04EDD00F26EAA /* ListofAllpharmaciesVC.swift */,
+				A80D728C25019AA0007DCD92 /* Cell */,
 			);
 			path = "List of All pharmacies";
 			sourceTree = "<group>";
@@ -597,11 +684,31 @@
 			files = (
 				A87A962B24C9D2F0001A4E36 /* LaunchScreen.storyboard in Resources */,
 				A855F96C24D8B27B003B53EB /* loginbg.mp4 in Resources */,
+				A8AC261E2503D93300A7DB43 /* Icon-App-76x76@2x.png in Resources */,
+				A8AC262A2503D93300A7DB43 /* Icon-App-60x60@2x.png in Resources */,
+				A8AC26252503D93300A7DB43 /* Contents.json in Resources */,
+				A8AC261D2503D93300A7DB43 /* iTunesArtwork@1x.png in Resources */,
 				A833869524F37FCA00604977 /* ShowDrugsCVC.xib in Resources */,
+				A8AC26212503D93300A7DB43 /* Icon-App-20x20@1x.png in Resources */,
+				A8AC26202503D93300A7DB43 /* Icon-App-40x40@1x.png in Resources */,
+				A8AC261F2503D93300A7DB43 /* Icon-App-29x29@1x.png in Resources */,
+				A8AC26222503D93300A7DB43 /* Icon-App-83.5x83.5@2x.png in Resources */,
+				A8AC26232503D93300A7DB43 /* Icon-App-20x20@3x.png in Resources */,
+				A8AC262E2503D93300A7DB43 /* README.md in Resources */,
+				A8AC26292503D93300A7DB43 /* Icon-App-60x60@3x.png in Resources */,
 				A87A962824C9D2F0001A4E36 /* Assets.xcassets in Resources */,
+				A8AC26262503D93300A7DB43 /* Icon-App-20x20@2x.png in Resources */,
 				A87A962324C9D2EF001A4E36 /* Main.storyboard in Resources */,
 				A86E860E24E9E68200B7F050 /* AddPharmacyTVC.xib in Resources */,
+				A8AC262B2503D93300A7DB43 /* Icon-App-76x76@1x.png in Resources */,
+				A8AC262C2503D93300A7DB43 /* Icon-App-40x40@3x.png in Resources */,
+				A8AC26282503D93300A7DB43 /* Icon-App-40x40@2x.png in Resources */,
+				A8AC262D2503D93300A7DB43 /* Icon-App-29x29@2x.png in Resources */,
+				A8AC26302503D93400A7DB43 /* iTunesArtwork@3x.png in Resources */,
 				A8147EB024D232190073B233 /* GoogleService-Info.plist in Resources */,
+				A8AC262F2503D93300A7DB43 /* iTunesArtwork@2x.png in Resources */,
+				A8AC26242503D93300A7DB43 /* ItunesArtwork@2x.png in Resources */,
+				A8AC26272503D93300A7DB43 /* Icon-App-29x29@3x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -656,7 +763,6 @@
 			files = (
 				A83C861124FA0082006C3AF5 /* ClientPageCVC.swift in Sources */,
 				A86FEEAD24EC0C7300DE52F6 /* FirebaseTokenRoot.swift in Sources */,
-				A819B56024FAC67A00025765 /* HomeData.swift in Sources */,
 				A877AF1924CDC2AF00F16363 /* ReadOrdersVC.swift in Sources */,
 				A85088E924ED5F5400011FBE /* PharmacyHomeVC.swift in Sources */,
 				A891873924D85E1300A0F215 /* Constants.swift in Sources */,
@@ -668,6 +774,7 @@
 				A891873724D83A8800A0F215 /* SignupVC.swift in Sources */,
 				A877AF2424CDC7C200F16363 /* CanorderVC.swift in Sources */,
 				A877AF1224CDA06200F16363 /* AddProviderVC.swift in Sources */,
+				A88E6BDF250386FB0066014A /* Information.swift in Sources */,
 				A8786C8124F826FF00006F72 /* AddCategoriesTVC.swift in Sources */,
 				A8104A5724F7FF87006468F5 /* AddCategoriesVC.swift in Sources */,
 				A86FEEAF24EC0CAE00DE52F6 /* FirebaseTokenData.swift in Sources */,
@@ -700,6 +807,7 @@
 				A8ADBF4F24E36BB300D1C408 /* FirestoreReferenceManager.swift in Sources */,
 				A86FEEB824EC19DC00DE52F6 /* LoginData.swift in Sources */,
 				A8147EAC24D211930073B233 /* Utilites.swift in Sources */,
+				A80D728E25019AC7007DCD92 /* ListallpharmacyTVC.swift in Sources */,
 				A885521924DC801E00BCD737 /* Client.swift in Sources */,
 				A86E860D24E9E68200B7F050 /* AddPharmacyTVC.swift in Sources */,
 				A883F1F824FA718E00E8562E /* CategoryDetails.swift in Sources */,

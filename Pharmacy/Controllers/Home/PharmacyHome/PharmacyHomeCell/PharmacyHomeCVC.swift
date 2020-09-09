@@ -12,4 +12,10 @@ class PharmacyHomeCVC: UICollectionViewCell {
     @IBOutlet weak var title: UILabel!
     
     @IBOutlet weak var image: UIImageView!
+    
+    override func awakeFromNib() {
+        image.layer.cornerRadius = 20
+        image.clipsToBounds = true
+        
+    }
 }
