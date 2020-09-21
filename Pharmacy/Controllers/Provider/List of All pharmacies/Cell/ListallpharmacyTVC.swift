@@ -10,6 +10,7 @@ import UIKit
 
 class ListallpharmacyTVC: UITableViewCell {
     @IBOutlet weak var pharmacynameLbl: UILabel!
+    @IBOutlet weak var pharmacyaddressLbl: UILabel!
        @IBOutlet weak var pharmacyimage: UIImageView!
 
 }

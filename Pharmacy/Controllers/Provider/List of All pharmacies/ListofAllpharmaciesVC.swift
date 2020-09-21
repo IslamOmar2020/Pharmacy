@@ -38,7 +38,7 @@ var parameters = [String:Any]()
                     let data =  document.data()
                     let name = data["pharmacyname"] as? String ?? ""
                     let address = data["pharmacyaddress"] as? String ?? ""
-                    let image = data["pharmacyimage"] as? String ?? ""
+                    let image = data["pharmacyImage"] as? String ?? ""
                     
                    // print(data)
                     
@@ -78,8 +78,9 @@ extension ListofAllpharmaciesVC : UITableViewDataSource , UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = getPharmasiesTV.dequeueReusableCell(withIdentifier: "ListallpharmacyTVC",for: indexPath) as! ListallpharmacyTVC
         let pharmacy = pharmasies[indexPath.row]
-        let image = pharmacy.pharmacyImage
+        let image = pharmacy.pharmacy_Image
         cell.pharmacynameLbl?.text = pharmacy.pharmacyname
+        cell.pharmacyaddressLbl?.text = pharmacy.pharmacyaddress
         let imageUrl = URL(string: image!)
         cell.pharmacyimage.sd_setImage(with: imageUrl, completed: nil)
         return cell

@@ -16,6 +16,7 @@ import Alamofire
 
 class ProviderVC: UIViewController , ImageSlideshowDelegate {
     var sliders = [String]()
+    var pharmasies = [Pharmacy]()
     @IBOutlet var imagesSlide: ImageSlideshow!
     @IBOutlet weak var addcategoryBtn: UIButton!
     @IBOutlet weak var addpharamcyBtn: UIButton!
@@ -25,7 +26,7 @@ class ProviderVC: UIViewController , ImageSlideshowDelegate {
         super.viewDidLoad()
         setUpelements()
         imageSlider()
-        
+        getallPharmacy()
     }
     @objc func didTap() {
     imagesSlide.presentFullScreenController(from: self)
@@ -97,5 +98,90 @@ class ProviderVC: UIViewController , ImageSlideshowDelegate {
          let vc = storyboard?.instantiateViewController(identifier: "AddDrugVC") as! AddDrugVC
          self.navigationController?.pushViewController(vc, animated: true)
      }
-    
+   
+func getallPharmacy() {
+        let userReference = Firestore.firestore().collection("Pharmacy")
+        userReference.getDocuments { (snapshot, error) in
+            if let err = error {
+                print("Error fetching docs: \(err)")
+            } else {
+                guard let snap = snapshot else {return}
+                
+                for document in snap.documents {
+                    
+                    let data =  document.data()
+                    let name = data["pharmacyname"] as? String ?? ""
+                    let image = data["pharmacyImage"] as? String ?? ""
+                    let address = data["pharmacyaddress"] as? String ?? ""
+                //    print(data)
+                    
+                    let    comedata = Pharmacy(pharmacyname: name, pharmacyaddress: address, pharmacyImage: image)
+                    
+                    self.pharmasies.append(comedata)
+                }
+                
+                
+                self.providercollectioview.reloadData()
+           //    self.clientpageview.removeSpinner()
+            }
+        }
+        
+    }
 }
+ 
+
+
+
+
+
+extension ProviderVC: UICollectionViewDelegate,UICollectionViewDataSource{
+  
+func initCollectionVC(){
+    providercollectioview.delegate = self
+    providercollectioview.dataSource = self
+
+}
+
+
+func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+  
+    return pharmasies.count
+    }
+ 
+func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+     
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ProviderCVCell", for: indexPath) as! ProviderCVCell
+  //  let image = categories[indexPath.row].categoryimage
+    
+  //  let imageUrl = URL(string: image!)
+  //  Cell.image.sd_setImage(with: imageUrl, completed: nil)
+    cell.nameLbl.text = pharmasies[indexPath.row].pharmacyname
+    cell.image.sd_setImage(with: URL(string: pharmasies[indexPath.row].pharmacy_Image!), completed: nil)
+        return cell
+        
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let flowayout = collectionViewLayout as? UICollectionViewFlowLayout
+        let space: CGFloat = (flowayout?.minimumInteritemSpacing ?? 0.0) + (flowayout?.sectionInset.left ?? 0.0) + (flowayout?.sectionInset.right ?? 0.0)
+        let size:CGFloat = (providercollectioview.frame.size.width - space) / 2.0
+        return CGSize(width: size, height: size)
+    }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+       
+   
+      
+    }
+
+//    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+//
+//    var categoreyDetails :CategoreyDetailsVC = (storyboard!.instantiateVC())!
+//        categoreyDetails.detalisObj =  categories[indexPath.row]
+//
+//    self.navigationController?.pushViewController(categoreyDetails, animated: true)
+//
+//
+//
+//          }
+    }
+

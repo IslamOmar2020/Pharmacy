@@ -66,11 +66,13 @@ class AddDrugVC: UIViewController {
                 if url == nil {
                     print("Error fetching docs:")
                 } else {
+                    let id = self.ref.collection("Drug").document()
                     let image = url!
                     self.parameters["aboutdrugTF"] = self.aboutdrugTF.text!
                     self.parameters["drugcount"] = self.drugcountTF.text!
                     self.parameters["drugname"] = self.drugnameTF.text!
                     self.parameters["image"] = image.absoluteString
+                    self.parameters["id"] = id
                     do{
                         let drugref = self.ref.collection("Drug")
                         

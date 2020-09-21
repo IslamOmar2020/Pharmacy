@@ -10,16 +10,15 @@ import Foundation
 
 
 struct Pharmacy: Codable {
- // @DoucumentID var id: String? = UUID().uuidString
+    var id: String? = UUID().uuidString
      var pharmacyname : String?
        var pharmacyaddress : String?
-       var pharmacyImage : String?
+       var pharmacy_Image : String?
     
     init(pharmacyname: String,pharmacyaddress :String,pharmacyImage : String ){
         self.pharmacyname = pharmacyname
         self.pharmacyaddress = pharmacyaddress
-        self.pharmacyImage = pharmacyImage
-     
+        self.pharmacy_Image = pharmacyImage
           
            
        }

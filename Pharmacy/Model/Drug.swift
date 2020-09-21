@@ -8,7 +8,8 @@
 
 import Foundation
 struct Drug: Codable {
-// @DoucumentID var id: String? = UUID().uuidString
+    var drugid: String?
+// var drugid: String? = UUID().uuidString
     var drugname : String?
     //  var drugdate : String?
       var drugImage : String?
@@ -17,10 +18,11 @@ struct Drug: Codable {
 
 
    
-    init(drugname: String,drugcount : Int , aboutdrug : String ,drugImage : String ){
+    init(drugname: String,drugcount : Int , aboutdrug : String ,drugImage : String , id : String){
         self.drugname = drugname
        self.drugImage = drugImage
         self.aboutdrug = aboutdrug
         self.drugcount = drugcount
+        self.drugid = id
         
     }}
